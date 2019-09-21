@@ -16,11 +16,11 @@ contract Ownable {
 
     address private  _owner;
 
-    function getOwner() external view returns(address){
+    function getOwner() public view returns(address){
         return _owner;
     }
 
-    constructor() public {
+    constructor() internal {
         _owner = msg.sender;
         emit ownerShipTransfered();
     }
@@ -32,7 +32,7 @@ contract Ownable {
 
     event ownerShipTransfered();
 
-    function transferOwnership(address newOwner) public onlyOwner {
+    function transferOwnership(address newOwner) public onlyOwner(msg.sender) {
         // TODO add functionality to transfer control of the contract to a newOwner.
         // make sure the new owner is a real address
         _owner = newOwner;
@@ -49,11 +49,11 @@ contract Ownable {
 contract Pausable is Ownable {
     bool private _paused;
 
-    function setPaused() public onlyOwner {
+    function setPaused() public onlyOwner(msg.sender) {
 
     }
 
-    constructor(){
+    constructor() internal{
         _paused = false;
     }
 
@@ -64,6 +64,7 @@ contract Pausable is Ownable {
 
     modifier paused(){
         require(_paused == true, "Contract is NOT paused.");
+        _;
     }
 
     event Paused(address addr);
@@ -163,7 +164,8 @@ contract ERC721 is Pausable, ERC165 {
         // TODO require the given address to not be the owner of the tokenId - OK
         require(to != _tokenOwner[tokenId], "Give address cannot be the owner address.");
         // TODO require the msg sender to be the owner of the contract or isApprovedForAll() to be true - OK
-        require(msg.sender == _owner || isApprovedForAll(), "Messenger sender wasn`t approved.");
+        address owner = super.getOwner();
+        require(msg.sender == owner || isApprovedForAll(owner,msg.sender), "Messenger sender wasn`t approved.");
         // TODO add 'to' address to token approvals - OK
         _tokenApprovals[tokenId] = to;
         // TODO emit Approval Event - OK
@@ -496,15 +498,15 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     }
 
     // TODO: create external getter functions for name, symbol, and baseTokenURI - OK
-    function name() external view returns(string){
+    function name() external view returns(string memory){
         return _name;
     }
 
-    function symbol() external view returns(string){
+    function symbol() external view returns(string memory){
         return _symbol;
     }
 
-    function baseTokenURI() external view returns(string){
+    function baseTokenURI() external view returns(string memory){
         return _baseTokenURI;
     }
 
@@ -522,8 +524,8 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     // require the token exists before setting
     function setTokenURI(uint256 tokenId) internal {
         require(_exists(tokenId), "Token does not exit");
-        string tokenURI = _baseTokenURI.strConcat(uint2str(tokenId));
-        _tokenURIs[tokenId] = tokenURI;
+        string memory tkURI = strConcat(_baseTokenURI,uint2str(tokenId));
+        _tokenURIs[tokenId] = tkURI;
     }
 
 }
@@ -539,13 +541,13 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 
 contract CustomToken is ERC721Metadata {
 
-    constructor(string memory name, string memory symbol, string memory baseTokenURI)
+    constructor(string memory name, string memory symbol, string memory baseTokenURI) public
         ERC721Metadata(name,symbol,baseTokenURI) {
 
     }
 
     function mint(address to, uint256 tokenId) public returns(bool){
-        require(_owner = msg.sender,"Cannot be executed. msg.sender is not owner address");
+        require(super.getOwner() == msg.sender,"Cannot be executed. msg.sender is not owner address");
         super._mint(to, tokenId);
         setTokenURI(tokenId);
         return true;
