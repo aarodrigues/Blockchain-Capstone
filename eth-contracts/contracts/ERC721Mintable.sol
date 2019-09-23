@@ -539,9 +539,9 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 //      -returns a true boolean upon completion of the function
 //      -calls the superclass mint and setTokenURI functions
 
-contract CustomToken is ERC721Metadata {
+contract ERC721Mintable is ERC721Metadata {
 
-    string baseTokenURI = "Teste";
+    string baseTokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
     constructor(string memory name, string memory symbol) public
         ERC721Metadata(name,symbol,baseTokenURI) {
 
