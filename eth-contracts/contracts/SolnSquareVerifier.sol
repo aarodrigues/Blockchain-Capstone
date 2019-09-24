@@ -72,8 +72,8 @@ function AddSolution(uint[2] memory a,
 function mint(uint a, uint b,address to) external {
 
     bytes32 key = keccak256(abi.encodePacked(a, b));
-    require(submittedSolutions[key].addr != address(0), "Solution does not exist");
-    require(submittedSolutions[key].addr == msg.sender, "Only solution address can use it to mint a token");
+    require(submittedSolutions[key].addr == msg.sender, "Is not allowed to mint the token");
+    require(submittedSolutions[key].addr != address(0), "There is no solution");
     super.mint(to, submittedSolutions[key].index);
 }
 

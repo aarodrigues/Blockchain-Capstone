@@ -6717,7 +6717,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.16",
-  "updatedAt": "2019-09-23T23:18:35.046Z",
+  "updatedAt": "2019-09-24T04:08:15.204Z",
   "devdoc": {
     "methods": {
       "isApprovedForAll(address,address)": {
