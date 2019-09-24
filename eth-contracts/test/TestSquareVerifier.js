@@ -13,11 +13,11 @@ contract('TestSquareVerifier', accounts => {
 
         it('Test verification with correct proof', async function () { 
 
-            let tx = await this.contract.verifyTx(
+            let tx = await this.contract.verifyTx.call(
                 JsonProof.proof["a"],
                 JsonProof.proof["b"],
                 JsonProof.proof["c"], 
-                JsonProof.input
+                JsonProof.inputs
             );
 
             assert.equal(tx, true, "Test fail. Incorrect inputs."); 
@@ -25,7 +25,7 @@ contract('TestSquareVerifier', accounts => {
 
         it('Test verification with incorrect proof', async function () { 
 
-            let tx = await this.contract.verifyTx(
+            let tx = await this.contract.verifyTx.call(
                 JsonProof.proof["a"],
                 JsonProof.proof["b"],
                 JsonProof.proof["c"], 

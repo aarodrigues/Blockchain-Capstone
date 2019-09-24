@@ -19,7 +19,7 @@ contract('TestERC721Mintable', accounts => {
 
         it('should return total supply', async function () { 
 
-            let total = await this.contract.totalSupply .call({from: account_two});
+            let total = await this.contract.totalSupply.call({from: account_two});
             assert.equal(total.toString(), tokens.length, "Wrong token amount.");
         })
 

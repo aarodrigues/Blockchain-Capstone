@@ -1917,8 +1917,8 @@
         ],
         "contractDependencies": [
           155,
-          109,
-          58
+          58,
+          109
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -8463,10 +8463,10 @@
           }
         ],
         "contractDependencies": [
-          155,
-          109,
           650,
-          58
+          155,
+          58,
+          109
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -12136,11 +12136,11 @@
           }
         ],
         "contractDependencies": [
-          948,
-          155,
-          109,
           650,
+          155,
+          948,
           58,
+          109,
           7439
         ],
         "contractKind": "contract",
@@ -13509,12 +13509,12 @@
           }
         ],
         "contractDependencies": [
-          948,
           1062,
-          155,
-          109,
           650,
+          155,
+          948,
           58,
+          109,
           7439
         ],
         "contractKind": "contract",
@@ -16051,8 +16051,8 @@
         ],
         "contractDependencies": [
           155,
-          109,
-          58
+          58,
+          109
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -22597,10 +22597,10 @@
           }
         ],
         "contractDependencies": [
-          155,
-          109,
           650,
-          58
+          155,
+          58,
+          109
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -26270,11 +26270,11 @@
           }
         ],
         "contractDependencies": [
-          948,
-          155,
-          109,
           650,
+          155,
+          948,
           58,
+          109,
           7439
         ],
         "contractKind": "contract",
@@ -27643,12 +27643,12 @@
           }
         ],
         "contractDependencies": [
-          948,
           1062,
-          155,
-          109,
           650,
+          155,
+          948,
           58,
+          109,
           7439
         ],
         "contractKind": "contract",
@@ -28308,7 +28308,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.16",
-  "updatedAt": "2019-09-24T04:08:15.101Z",
+  "updatedAt": "2019-09-24T12:35:16.524Z",
   "devdoc": {
     "methods": {
       "constructor": {
