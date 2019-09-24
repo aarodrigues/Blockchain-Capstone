@@ -88,6 +88,18 @@ This command will run all test configured.
 Marketplace front page. 
 OpenSea Address: https://rinkeby.opensea.io/assets/dykrastoken
 
+10 tokens was minted and listed on OpenSea Marketplace and 5 tokens was sold.
+
+Buyer Address: 0x8Cd9486fDe52d5Bb404110b1678697D8cf04C76F
+
+Tokens sold transactions:
+
+Token 1 trasaction: 0xcba6729353cd4fec902dbecc02a211cad51ba92e9c88717369a8ac6889e29204
+Token 2 trasaction: 0xf83e4d05fb2960d3659074afdeb59c43cf2ccbdf8d79c7eee56df7530305d566
+Token 3 trasaction: 0x5f2a4935482064384a5946652c6844aa13dfb92a4a6e16f8a9f5db9b9c429edf
+Token 4 trasaction: 0x5a2e6f8814e7e44ef8b0bd2fc53f6111bcab8433c03ca6e1090a9c1bcbc3e6c1
+Token 5 trasaction: 0x21c78c8010cc3d26176664925479d65a750ce076de347f6e66727d54ab9f0469
+
 ## SolnSquareVerifier Contract Address
 
 Contract Address: 0x799f45467E27EA3319720e04372aC0dCFD9b1bB7
